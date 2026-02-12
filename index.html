@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dearest Love ❤️</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --hot-pink: #ff4d6d;
+            --soft-pink: #ffb3c1;
+            --deep-pink: #c9184a;
+            --white-glass: rgba(255, 255, 255, 0.25);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #590d22;
+            font-family: 'Quicksand', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Background Particles --- */
+        #particles { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
+
+        /* --- Floating Navigation --- */
+        .nav-bar {
+            position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            padding: 12px 30px; border-radius: 50px;
+            display: flex; gap: 25px; z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+        }
+        .nav-bar a { text-decoration: none; font-size: 1.2rem; transition: 0.3s; }
+        .nav-bar a:hover { transform: scale(1.3); }
+
+        /* --- Global Styling --- */
+        section {
+            min-height: 100vh; padding: 100px 20px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .glass-card {
+            background: var(--white-glass);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--deep-pink); margin-bottom: 20px; }
+
+        /* --- Button "Sayang" --- */
+        .btn-love {
+            background: linear-gradient(to right, var(--hot-pink), var(--deep-pink));
+            color: white; border: none; padding: 15px 40px;
+            border-radius: 50px; font-weight: bold; cursor: pointer;
+            animation: pulse 2s infinite; transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(201, 24, 74, 0.4);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 77, 109, 0); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- Section Alasan (Upgraded) --- */
+        .reason-container {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 30px;
+        }
+        .reason-box {
+            background: white; padding: 20px; border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.1);
+            transition: 0.4s; cursor: pointer; border: 1px solid var(--soft-pink);
+        }
+        .reason-box:hover { background: var(--hot-pink); color: white; transform: rotate(-3deg); }
+        .reason-box h4 { font-size: 1.5rem; margin-bottom: 5px; }
+
+        /* --- Memory Section --- */
+        .img-frame {
+            width: 100%; height: 250px; border-radius: 20px;
+            overflow: hidden; margin-bottom: 15px; border: 5px solid white;
+        }
+        .img-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* --- Music Floating --- */
+        #music-control {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: white; width: 45px; height: 45px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <div id="music-control" onclick="toggleMusic()">🎵</div>
+    <audio id="song" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+
+    <nav class="nav-bar">
+        <a href="#home">Home</a>
+        <a href="#memories">Memori</a>
+        <a href="#reasons">Resons</a>
+        <a href="#letter">Pesan</a>
+    </nav>
+
+    <section id="home">
+        <div class="glass-card">
+            <h1 style="font-family: 'Pinyon Script', cursive; font-size: 4rem; color: var(--deep-pink);">Hi, My Love</h1>
+            <p style="font-size: 1.1rem; margin: 15px 0;">Hari ini aku ingin menunjukkan betapa berartinya kamu bagiku...</p>
+            <div id="days-counter" style="font-size: 1.5rem; font-weight: bold; color: var(--hot-pink); margin: 20px 0;"></div>
+            <button class="btn-love" onclick="location.href='#memories'">Buka Hatiku ✨</button>
+        </div>
+    </section>
+
+    <section id="memories">
+        <div class="container" style="max-width: 600px;">
+            <h2>Momen Indah Kita</h2>
+            <div class="glass-card" style="margin-bottom: 20px;">
+                <div class="img-frame">
+                    <img src="https://k.top4top.io/p_3695nytup1.jpg" alt="Memory">
+                </div>
+                <p>Ingat waktu ini? Salah satu hari terbaik dalam hidupku karena ada kamu di sampingku.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reasons">
+        <div class="container" style="text-align: center;">
+            <h2>Kenapa Sayang Kamu?</h2>
+            <div class="reason-container">
+                <div class="reason-box">
+                    <h4>✨</h4>
+                    <p>Senyummu itu penyemangatku</p>
+                </div>
+                <div class="reason-box">
+                    <h4>🧸</h4>
+                    <p>Sangat sabar dan pengertian</p>
+                </div>
+                <div class="reason-box">
+                    <h4>🍰</h4>
+                    <p>Selalu bikin hari jadi manis</p>
+                </div>
+                <div class="reason-box">
+                    <h4>🔐</h4>
+                    <p>Kamu rumah yang paling nyaman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="letter">
+        <div class="glass-card">
+            <h2>Untuk Selamanya</h2>
+            <p style="line-height: 1.8; font-style: italic;">
+                "Nggak ada kata yang cukup untuk bilang makasih. Tetap di sampingku ya? Kita buat lebih banyak memori indah lagi. I Love You More Than Anything."
+            </p>
+            <div style="font-size: 3rem; margin-top: 20px;">🌹</div>
+            <button class="btn-love" style="margin-top: 20px; animation: none;" onclick="alert('Aku sangat sayang kamu! ❤️')">I Love You Too</button>
+        </div>
+    </section>
+
+    <script>
+        // 1. Falling Particles (Hearts & Roses)
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let parts = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Part {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * -canvas.height;
+                this.size = Math.random() * 15 + 10;
+                this.speed = Math.random() * 2 + 1;
+                this.char = ['❤️', '🌸', '💖', '✨'][Math.floor(Math.random() * 4)];
+            }
+            draw() {
+                ctx.font = this.size + "px serif";
+                ctx.fillText(this.char, this.x, this.y);
+            }
+            update() {
+                this.y += this.speed;
+                if (this.y > canvas.height) this.y = -20;
+            }
+        }
+
+        for(let i=0; i<30; i++) parts.push(new Part());
+
+        function anim() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            parts.forEach(p => { p.draw(); p.update(); });
+            requestAnimationFrame(anim);
+        }
+        anim();
+
+        // 2. Days Counter (Ganti tgl jadian di sini)
+        const start = new Date("Feb 15, 2023"); 
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - start;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('days-counter').innerText = days + " Hari Penuh Cinta ❤️";
+        }
+        updateCounter();
+
+        // 3. Music Control
+        function toggleMusic() {
+            const song = document.getElementById('song');
+            const icon = document.getElementById('music-control');
+            if(song.paused) { song.play(); icon.innerText = "⏸️"; }
+            else { song.pause(); icon.innerText = "🎵"; }
+        }
+    </script>
+</body>
+</html>
